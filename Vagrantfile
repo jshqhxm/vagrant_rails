@@ -22,10 +22,13 @@ Vagrant.configure("2") do |config|
    config.vm.provision "shell", inline: <<-SHELL
      apt update
      apt install -y ruby
+	 apt install -y ruby-dev
 	 apt install -y sqlite3
+	 apt install -y build-essential patch ruby-dev zlib1g-dev liblzma-dev
    SHELL
   
   #config.vm.network :forwarded_port, guest: 80, host: 4567
+  config.vm.network :forwarded_port, guest: 3000, host: 3000
   
   
   # Disable automatic box update checking. If you disable this, then
